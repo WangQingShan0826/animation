@@ -41,9 +41,9 @@
             <div class="more" v-if="optionsMore === 2">
               <div>News</div>
               <div>Media Release</div>
-              <div>press</div>
-              <div>video</div>
-              <div>podcast</div>
+              <div>Press</div>
+              <div>Video</div>
+              <div>Podcast</div>
             </div>
           </Transition>
         </div>
