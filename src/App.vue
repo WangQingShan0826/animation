@@ -857,10 +857,6 @@
           >
             <div
               class="item"
-              style="
-                background-image: url('/src/assets/images/app/events/img_pul_01.png');
-                background-size: 100% 100%;
-              "
             >
               <div class="mask" @mouseover.stop="publications = 1">
                 <div class="title">June 30th</div>
@@ -893,11 +889,7 @@
               </div>
             </div>
             <div
-              class="item"
-              style="
-                background-image: url('/src/assets/images/app/events/img_pul_02.png');
-                background-size: 100% 100%;
-              "
+              class="item two"
             >
               <div class="mask" @mouseover.stop="publications = 2">
                 <div class="title">June 30th</div>
@@ -930,11 +922,7 @@
               </div>
             </div>
             <div
-              class="item"
-              style="
-                background-image: url('/src/assets/images/app/events/img_pul_03.png');
-                background-size: 100% 100%;
-              "
+              class="item three"
             >
               <div class="mask" @mouseover.stop="publications = 3">
                 <div class="title">June 30th</div>
@@ -967,11 +955,7 @@
               </div>
             </div>
             <div
-              class="item"
-              style="
-                background-image: url('/src/assets/images/app/events/img_pul_01.png');
-                background-size: 100% 100%;
-              "
+              class="item four"
             >
               <div class="mask" @mouseover.stop="publications = 4">
                 <div class="title">June 30th</div>
@@ -1004,11 +988,7 @@
               </div>
             </div>
             <div
-              class="item"
-              style="
-                background-image: url('/src/assets/images/app/events/img_pul_02.png');
-                background-size: 100% 100%;
-              "
+              class="item five"
             >
               <div class="mask" @mouseover.stop="publications = 5">
                 <div class="title">June 30th</div>

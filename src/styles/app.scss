@@ -1210,6 +1210,8 @@
           .item {
             width: 33.35vh;
             height: 46.1vh;
+            background-image: url('/src/assets/images/app/events/img_pul_01.png');
+            background-size: 100% 100%;
 
             .mask {
               width: 100%;
@@ -1316,6 +1318,22 @@
               bottom: 1vh;
               left: 1vh;
             }
+          }
+
+          .two {
+            background-image: url('/src/assets/images/app/events/img_pul_02.png');
+          }
+
+          .three {
+            background-image: url('/src/assets/images/app/events/img_pul_03.png');
+          }
+
+          .four {
+            background-image: url('/src/assets/images/app/events/img_pul_01.png');
+          }
+
+          .five {
+            background-image: url('/src/assets/images/app/events/img_pul_02.png');
           }
         }
 
