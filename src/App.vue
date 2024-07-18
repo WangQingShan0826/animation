@@ -1355,7 +1355,6 @@ watch(
 );
 
 const programsMouseMove = (event) => {
-  console.log(`鼠标位置：X=${event.clientX}, Y=${event.clientY}`);
   letter.value.style.transform = `translateX(${(event.clientX - window.innerWidth / 2) / 5}px) translateY(${(event.clientY - window.innerHeight / 2) / 5}px)`
 }
 
