@@ -1390,7 +1390,8 @@ const throttle = (fn, delay) => {
   }
 }
 
-const handleWheel = throttle((event) => {
+const handleWheel = (event) => {
+  console.log('event', event)
   if (event.deltaY > 0) {
     // if (eventsPublicationsValue.value === window.innerHeight && publicationsScroll.value > publicationsScrollDom.value.offsetWidth - publicationsViewlDom.value.offsetWidth) {
     //   publicationsScroll.value -= 10
@@ -1406,6 +1407,7 @@ const handleWheel = throttle((event) => {
     }
 
     step.value++;
+    console.log('step', step.value)
     header.value = false;
   } else {
     // if (step.value === 4 && publicationsScroll.value < 0) {
@@ -1423,7 +1425,7 @@ const handleWheel = throttle((event) => {
       }
     }
   }
-}, 400)
+}
 
 const draggable = ref(null);
 const draggableStep = ref(null);
