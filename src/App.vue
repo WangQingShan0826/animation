@@ -39,11 +39,11 @@
           </Transition>
           <Transition name="options-more">
             <div class="more" v-if="optionsMore === 2">
-              <div>Who we are</div>
-              <div>Structure</div>
-              <div>Experts</div>
-              <div>Contact us</div>
-              <div>Join us</div>
+              <div>News</div>
+              <div>Media Release</div>
+              <div>press</div>
+              <div>video</div>
+              <div>podcast</div>
             </div>
           </Transition>
         </div>
@@ -54,15 +54,31 @@
           </Transition>
         </div>
         <div>/</div>
-        <div class="item">
+        <div class="item" @mouseover.stop="optionsMore = 4">
           <Transition name="header-msg-four">
             <div v-if="loadFlag">Events</div>
           </Transition>
+          <Transition name="options-more">
+            <div class="more" v-if="optionsMore === 4">
+              <div>On the spot</div>
+              <div>Upcoming events</div>
+              <div>Past events</div>
+              <div>Annual Events</div>
+            </div>
+          </Transition>
         </div>
         <div>/</div>
-        <div class="item">
+        <div class="item" @mouseover.stop="optionsMore = 5">
           <Transition name="header-msg-five">
             <div v-if="loadFlag">Publications</div>
+          </Transition>
+          <Transition name="options-more">
+            <div class="more" v-if="optionsMore === 5">
+              <div>Reports</div>
+              <div>Opinions</div>
+              <div>Books</div>
+              <div>Year Book</div>
+            </div>
           </Transition>
         </div>
         <div>/</div>
@@ -211,6 +227,8 @@
               <img
                 class="btn-2"
                 src="/src/assets/images/app/multimedia/btn_more_02.png"
+                width="73px"
+                height="73px"
               />
               <img src="/src/assets/images/app/about/btn_nextjt_02.png" />
               <div class="btn-msg">More</div>
@@ -1405,7 +1423,7 @@ const handleWheel = throttle((event) => {
       }
     }
   }
-}, 300)
+}, 400)
 
 const draggable = ref(null);
 const draggableStep = ref(null);

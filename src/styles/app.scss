@@ -61,7 +61,7 @@
           font-weight: 400;
           font-size: 16px;
           color: #E8E8E8;
-          padding-left: 57px;
+          padding-left: 40px;
           text-align: left;
           padding-top: 24px;
           transition: .3s;
@@ -237,7 +237,7 @@
         top: 37vh;
         left: 10vw;
         z-index: 100;
-        width: 50vw;
+        white-space: nowrap;
       }
 
       .secondary {
@@ -248,7 +248,7 @@
         top: calc(37vh + 170px);
         left: 10vw;
         z-index: 100;
-        width: 50vw;
+        white-space: nowrap;
       }
 
       .next-btn {
@@ -256,6 +256,8 @@
         top: calc(37vh + 400px);
         left: 10vw;
         cursor: pointer;
+        width: 72px;
+        height: 72px;
   
         img {
           position: absolute;
@@ -278,6 +280,11 @@
 
         .btn-3 {
           opacity: .5;
+        }
+
+        .btn-2 {
+          width: 73px;
+          height: 73px;
         }
       }
 
