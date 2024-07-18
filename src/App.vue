@@ -603,10 +603,7 @@
                 @mouseout="programs = null"
               ></view>
               <div
-                class="bg"
-                style="
-                  background-image: url('/src/assets/images/app/programs/img_pro_03.png');
-                "
+                class="bg two"
               >
                 <img
                   class="mask"
@@ -654,10 +651,7 @@
                 @mouseout="programs = null"
               ></view>
               <div
-                class="bg"
-                style="
-                  background-image: url('/src/assets/images/app/programs/img_pro_04.png');
-                "
+                class="bg three"
               >
                 <img
                   class="mask"
@@ -705,10 +699,7 @@
                 @mouseout="programs = null"
               ></view>
               <div
-                class="bg"
-                style="
-                  background-image: url('/src/assets/images/app/programs/img_pro_05.png');
-                "
+                class="bg four"
               >
                 <img
                   class="mask"
@@ -815,7 +806,7 @@
             </Transition>
             <div class="option">
               <Transition name="option-one">
-                <div class="item" v-if="step >= 4"><div>On the spot ></div></div>
+                <div class="item" v-if="step >= 4"><span>On the spot ></span></div>
               </Transition>
               <Transition name="option-one">
                 <div class="item" v-if="step >= 4"><span>Annual events ></span></div>
@@ -1197,19 +1188,19 @@
               <Transition name="row-one">
                 <div class="row" v-if="step >= 7">
                   <div>Newsletter</div>
-                  <div style="color: #03f0bb">Newsletter</div>
+                  <div style="color: #ce1b1b">Newsletter</div>
                 </div>
               </Transition>
               <Transition name="row-two">
                 <div class="row" v-if="step >= 7">
                   <div>Contact us</div>
-                  <div style="color: #03f0bb">Contact us</div>
+                  <div style="color: #ce1b1b">Contact us</div>
                 </div>
               </Transition>
               <Transition name="row-three">
                 <div class="row" v-if="step >= 7">
                   <div>Press</div>
-                  <div style="color: #03f0bb">Press</div>
+                  <div style="color: #ce1b1b">Press</div>
                 </div>
               </Transition>
             </div>
@@ -1217,25 +1208,25 @@
               <Transition name="row-one">
                 <div class="row" v-if="step >= 7">
                   <div>Multimedia</div>
-                  <div style="color: #03f0bb">Multimedia</div>
+                  <div style="color: #ce1b1b">Multimedia</div>
                 </div>
               </Transition>
               <Transition name="row-two">
                 <div class="row" v-if="step >= 7">
                   <div>Events</div>
-                  <div style="color: #03f0bb">Events</div>
+                  <div style="color: #ce1b1b">Events</div>
                 </div>
               </Transition>
               <Transition name="row-three">
                 <div class="row" v-if="step >= 7">
                   <div>Publications</div>
-                  <div style="color: #03f0bb">Publications</div>
+                  <div style="color: #ce1b1b">Publications</div>
                 </div>
               </Transition>
               <Transition name="row-four">
                 <div class="row" v-if="step >= 7">
                   <div>Partners</div>
-                  <div style="color: #03f0bb">Partners</div>
+                  <div style="color: #ce1b1b">Partners</div>
                 </div>
               </Transition>
             </div>
@@ -1243,25 +1234,25 @@
               <Transition name="row-one">
                 <div class="row" v-if="step >= 7">
                   <div>Acessibility</div>
-                  <div style="color: #03f0bb">Acessibility</div>
+                  <div style="color: #ce1b1b">Acessibility</div>
                 </div>
               </Transition>
               <Transition name="row-two">
                 <div class="row" v-if="step >= 7">
                   <div>Cookie Pilicy</div>
-                  <div style="color: #03f0bb">Cookie Pilicy</div>
+                  <div style="color: #ce1b1b">Cookie Pilicy</div>
                 </div>
               </Transition>
               <Transition name="row-three">
                 <div class="row" v-if="step >= 7">
                   <div>privacy Policy</div>
-                  <div style="color: #03f0bb">privacy Policy</div>
+                  <div style="color: #ce1b1b">privacy Policy</div>
                 </div>
               </Transition>
               <Transition name="row-four">
                 <div class="row" v-if="step >= 7">
                   <div>Terms and Condhions</div>
-                  <div style="color: #03f0bb">Terms and Condhions</div>
+                  <div style="color: #ce1b1b">Terms and Condhions</div>
                 </div>
               </Transition>
             </div>
@@ -1386,7 +1377,22 @@ const eventsScroll = (event) => {
   eventsPublicationsValue.value = eventsPublications.value.scrollTop;
 };
 
-const handleWheel = (event) => {
+const throttle = (fn, delay) => {
+  let timer;
+  return function(){
+    let _args = arguments;
+    let _this = this;
+    if(timer){//如果有定时器，退出
+      return
+    }
+    timer = setTimeout(function(){
+      fn.apply(_this,_args);//定时器结束执行函数
+      timer = null;//清除定时器，可以再次进入
+    },delay)
+  }
+}
+
+const handleWheel = throttle((event) => {
   if (event.deltaY > 0) {
     // if (eventsPublicationsValue.value === window.innerHeight && publicationsScroll.value > publicationsScrollDom.value.offsetWidth - publicationsViewlDom.value.offsetWidth) {
     //   publicationsScroll.value -= 10
@@ -1401,10 +1407,8 @@ const handleWheel = (event) => {
       return;
     }
 
-    debounce(() => {
-      step.value++;
-      header.value = false;
-    }, 100)();
+    step.value++;
+    header.value = false;
   } else {
     // if (step.value === 4 && publicationsScroll.value < 0) {
     //   publicationsScroll.value += 10
@@ -1415,15 +1419,13 @@ const handleWheel = (event) => {
       step.value !== 4 ||
       (step.value === 4 && !eventsPublicationsValue.value)
     ) {
-      debounce(() => {
-        if (step.value) {
-          step.value--;
-          header.value = true;
-        }
-      }, 100)();
+      if (step.value) {
+        step.value--;
+        header.value = true;
+      }
     }
   }
-};
+}, 300)
 
 const draggable = ref(null);
 const draggableStep = ref(null);

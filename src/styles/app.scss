@@ -924,6 +924,18 @@
             }
           }
 
+          .two {
+            background-image: url('/src/assets/images/app/programs/img_pro_03.png');
+          }
+
+          .three {
+            background-image: url('/src/assets/images/app/programs/img_pro_04.png');
+          }
+
+          .four {
+            background-image: url('/src/assets/images/app/programs/img_pro_05.png');
+          }
+
           .time {
             margin-top: 2.5vh;
             font-family: Noto Sans S Chinese;
@@ -1422,6 +1434,7 @@
       height: 100%;
       background-image: url('/src/assets/images/app/partners/bg_img_partners_02.png');
       transition: .6s ease-out;
+      background-size: 100% 100%;
     }
 
     .title {
