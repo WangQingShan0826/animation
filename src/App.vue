@@ -6,6 +6,7 @@
       () => {
         optionsMore = 0;
         share = 0;
+        languageFlag = false;
       }
     "
   >
@@ -93,7 +94,14 @@
           <img v-if="loadFlag" src="/src/assets/images/app/header/btn_sousuo_01.png" />
         </Transition>
         <Transition name="header-msg-eight">
-          <span v-if="loadFlag">EN</span>
+          <div class="language" v-if="loadFlag" @mouseover.stop="languageFlag = true">
+            <span>{{ language }}</span>
+            <Transition name="options-more">
+              <div class="language-popup" v-if="languageFlag">
+                <div @click="language = language === 'EN' ? 'CN' : 'EN'">{{ language === 'EN' ? 'CN' : 'EN' }}</div>
+              </div>
+            </Transition>
+          </div>
         </Transition>
         
         <div class="line"></div>
@@ -1319,16 +1327,14 @@ const login = ref(false);
 const programs = ref();
 const videoPlay = ref(false);
 const publications = ref();
-const publicationsScroll = ref(0);
 const eventsPublications = ref();
 const eventsPublicationsValue = ref(0);
 const publicationsScrollDom = ref();
-const publicationsViewlDom = ref();
 const videoDom = ref();
 const share = ref(0);
-let letterX = ref(10)
-let letterY = ref(10)
 const letter = ref()
+const language = ref('EN')
+const languageFlag = ref(false)
 
 onMounted(() => {
   videoDom.value.play();
@@ -1338,7 +1344,7 @@ onMounted(() => {
 watch(
   () => step,
   () => {
-    eventsPublicationsValue.value = 0;
+    eventsPublicationsValue.value = 0
   }
 );
 
@@ -1371,6 +1377,7 @@ const swiperChange = () => {
 };
 
 const eventsScroll = (event) => {
+  event.preventDefault()
   eventsPublicationsValue.value = eventsPublications.value.scrollTop;
 };
 
@@ -1378,15 +1385,10 @@ let preTimestamp = 0
 let timeDelta = 0
 const handleWheel = (event) => {
   timeDelta = event.timeStamp - preTimestamp
-  if (timeDelta <= 1500) return
+  if (parseInt(timeDelta) < (step.value === 4 ? 3000 : 1500) ) return
   preTimestamp = event.timeStamp
 
   if (event.deltaY > 0) {
-    // if (eventsPublicationsValue.value === window.innerHeight && publicationsScroll.value > publicationsScrollDom.value.offsetWidth - publicationsViewlDom.value.offsetWidth) {
-    //   publicationsScroll.value -= 10
-    //   return
-    // }
-
     if (
       (step.value === 4 &&
         eventsPublicationsValue.value !== window.innerHeight) ||
@@ -1396,14 +1398,8 @@ const handleWheel = (event) => {
     }
 
     step.value++;
-    console.log('step', step.value)
     header.value = false;
   } else {
-    // if (step.value === 4 && publicationsScroll.value < 0) {
-    //   publicationsScroll.value += 10
-    //   event.preventDefault()
-    //   return
-    // } else
     if (
       step.value !== 4 ||
       (step.value === 4 && !eventsPublicationsValue.value)

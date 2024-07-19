@@ -64,7 +64,7 @@
           padding-left: calc(100vw / 1920 * 40);
           text-align: left;
           padding-top: calc(100vw / 1920 * 24);
-          transition: .3s;
+          // transition: .3s;
           line-height: calc(100vw / 1920 * 30);
 
           div {
@@ -111,6 +111,33 @@
           position: absolute;
           height: 100%;
         }
+      }
+
+      .language {
+        position: relative;
+        line-height: calc(100vw / 1920 * 70);
+        width: calc(100vw / 1920 * 50);
+        text-align: center;
+
+        .language-popup {
+          position: absolute;
+          width: calc(100vw / 1920 * 80);
+          line-height: calc(100vw / 1920 * 80);
+          background-image: url('/src/assets/images/app/header/language-bg.png');
+          background-size: 100% 100%;
+          top: 64px;
+          text-align: center;
+          margin-left: -30%;
+          transition: .3s;
+        }
+
+        span {
+          transition: .3s;
+        }
+      }
+
+      .language:hover span {
+        color: #CE1B1B;
       }
     }
   }
@@ -160,7 +187,7 @@
 
   .page-share {
     position: absolute;
-    right: -70px;
+    right: calc(100vw / 1920 * -70);
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -170,17 +197,17 @@
     opacity: .7;
 
     .content {
-      width: 90px;
-      height: 500px;
+      width: calc(100vw / 1920 * 90);
+      height: calc(100vw / 1920 * 500);
       background-image: url('/src/assets/images/app/swiper/bg_logo_share_01.png');
       background-size: 100% 100%;
       display: flex;
       flex-direction: column;
-      padding-left: 5px;
-      padding-top: 24px;
+      padding-left: calc(100vw / 1920 * 5);
+      padding-top: calc(100vw / 1920 * 24);
 
       .line {
-        width: 26px;
+        width: calc(100vw / 1920 * 26);
         height: 1px;
         background: #D3ECF7;
         margin: 2px 22.5px 2px;
@@ -189,8 +216,8 @@
       .item {
         cursor: pointer;
         position: relative;
-        width: 70px;
-        height: 70px;
+        width: calc(100vw / 1920 * 70);
+        height: calc(100vw / 1920 * 70);
 
         img {
           position: absolute;
