@@ -1390,8 +1390,13 @@ const throttle = (fn, delay) => {
   }
 }
 
+let preTimestamp = 0
+let timeDelta = 0
 const handleWheel = (event) => {
-  console.log('event', event)
+  timeDelta = event.timeStamp - preTimestamp
+  if (timeDelta <= 1000) return
+  preTimestamp = event.timeStamp
+
   if (event.deltaY > 0) {
     // if (eventsPublicationsValue.value === window.innerHeight && publicationsScroll.value > publicationsScrollDom.value.offsetWidth - publicationsViewlDom.value.offsetWidth) {
     //   publicationsScroll.value -= 10
