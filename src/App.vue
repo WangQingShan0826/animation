@@ -1306,7 +1306,6 @@
 
 <script setup>
 import { reactive, ref, watch, onMounted, onBeforeUnmount } from "vue";
-import { debounce } from "/src/utils/throttle";
 
 import swiperImage1 from "./assets/images/app/swiper/1.png";
 import swiperImage2 from "./assets/images/app/swiper/2.png";
@@ -1375,26 +1374,11 @@ const eventsScroll = (event) => {
   eventsPublicationsValue.value = eventsPublications.value.scrollTop;
 };
 
-const throttle = (fn, delay) => {
-  let timer;
-  return function(){
-    let _args = arguments;
-    let _this = this;
-    if(timer){//如果有定时器，退出
-      return
-    }
-    timer = setTimeout(function(){
-      fn.apply(_this,_args);//定时器结束执行函数
-      timer = null;//清除定时器，可以再次进入
-    },delay)
-  }
-}
-
 let preTimestamp = 0
 let timeDelta = 0
 const handleWheel = (event) => {
   timeDelta = event.timeStamp - preTimestamp
-  if (timeDelta <= 1000) return
+  if (timeDelta <= 1500) return
   preTimestamp = event.timeStamp
 
   if (event.deltaY > 0) {
