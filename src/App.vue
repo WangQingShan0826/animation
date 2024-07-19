@@ -481,7 +481,7 @@
                     </div>
                   </Transition>
                   <div class="title">BRICS Currency</div>
-                  <div class="mask-msg">
+                  <div class="mask-msg" style="margin-bottom: calc(100vw / 1920 * 42)">
                     Co hosted by the Beijing Dialogue United Nations Southern
                     <br />
                     Center
@@ -521,7 +521,7 @@
                     </div>
                   </Transition>
                   <div class="title">Past Events</div>
-                  <div class="mask-msg" style="margin-bottom: 48px">
+                  <div class="mask-msg" style="margin-bottom: calc(100vw / 1920 * 62)">
                     Countdown to US dollar hegemony？
                   </div>
                   <img
