@@ -118,6 +118,7 @@
         line-height: calc(100vw / 1920 * 70);
         width: calc(100vw / 1920 * 50);
         text-align: center;
+        font-size: calc(100vw / 1920 * 20);
 
         .language-popup {
           position: absolute;
@@ -125,7 +126,7 @@
           line-height: calc(100vw / 1920 * 80);
           background-image: url('/src/assets/images/app/header/language-bg.png');
           background-size: 100% 100%;
-          top: 64px;
+          top: calc(100vw / 1920 * 64);
           text-align: center;
           margin-left: -30%;
           transition: .3s;
