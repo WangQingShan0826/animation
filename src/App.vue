@@ -12,7 +12,7 @@
   >
     <div
       class="page-header"
-      :style="{ top: header ? 0 : '-90px' }"
+      :style="{ top: header ? 0 : 'calc(100vw / 1920 * -90)' }"
       @mouseover="headerMouseover"
     >
       <Transition name="page-logo">
@@ -1430,24 +1430,43 @@ function debounce(func, wait) {
 }
 
 const handleWheel = (event) => {
-  // console.log('滚轮滚动中...');
-  handleWheelEnd(event.deltaY > 0);
+  console.log('滚轮滚动中...');
+  if (changeFlag) {
+    if (event.deltaY > 0) {
+      if (step.value !== 7) {
+        if (step.value === 4) {
+          if (eventsPublicationsValue.value === window.innerHeight) {
+            step.value++;
+            header.value = false;
+          }
+        } else {
+          step.value++;
+          header.value = false;
+        }
+      }   
+    } else {
+      if (step.value > 0) {
+        if (step.value === 4) {
+          if (!eventsPublicationsValue.value) {
+            step.value--;
+            header.value = true;
+          }
+        } else {
+          step.value--;
+          header.value = true;
+        }
+      }
+    }
+    changeFlag = false
+  }
+  handleWheelEnd();
 };
 
-const handleWheelEnd = debounce((status) => {
-  // console.log('滚轮滚动结束');
-  if (status) {
-    if ((step.value === 4 && eventsPublicationsValue.value !== window.innerHeight) || step.value === 7) return
-    step.value++;
-    header.value = false;
-  } else {
-    if (step.value === 4 && (step.value === 4 && eventsPublicationsValue.value)) return
-    if (step.value) {
-      step.value--;
-      header.value = true;  
-    }
-  }
-}, 50);
+const handleWheelEnd = debounce(() => {
+  console.log('滚轮滚动结束');
+  changeFlag = true
+  // console.log('222', changeFlag)
+}, 100);
 
 const draggable = ref(null);
 const draggableStep = ref(null);
