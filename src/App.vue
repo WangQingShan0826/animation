@@ -1430,7 +1430,7 @@ function debounce(func, wait) {
 }
 
 const handleWheel = (event) => {
-  console.log('滚轮滚动中...');
+  // console.log('滚轮滚动中...');
   if (changeFlag) {
     if (event.deltaY > 0) {
       if (step.value !== 7) {
@@ -1463,10 +1463,9 @@ const handleWheel = (event) => {
 };
 
 const handleWheelEnd = debounce(() => {
-  console.log('滚轮滚动结束');
+  // console.log('滚轮滚动结束');
   changeFlag = true
-  // console.log('222', changeFlag)
-}, 100);
+}, 200);
 
 const draggable = ref(null);
 const draggableStep = ref(null);
