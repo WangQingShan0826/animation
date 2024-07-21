@@ -1383,34 +1383,71 @@ const eventsScroll = (event) => {
 
 let preTimestamp = 0
 let timeDelta = 0
+let changeFlag = true
+// const handleWheel = (event) => {
+//   timeDelta = event.timeStamp - preTimestamp
+//   if (!changeFlag) return
+//   preTimestamp = event.timeStamp
+
+//   if (event.deltaY > 0) {
+//     if (
+//       (step.value === 4 &&
+//         eventsPublicationsValue.value !== window.innerHeight) ||
+//       step.value === 7
+//     ) {
+//       return;
+//     }
+
+//     step.value++;
+//     header.value = false;
+//     changeFlag = false
+//     setTimeout(() => {
+//       changeFlag = true
+//     }, 1000)
+//   } else {
+//     if (
+//       step.value !== 4 ||
+//       (step.value === 4 && !eventsPublicationsValue.value)
+//     ) {
+//       if (step.value) {
+//         step.value--;
+//         header.value = true;
+//         changeFlag = false
+//         setTimeout(() => {
+//           changeFlag = true
+//         }, 1000)
+//       }
+//     }
+//   }
+// }
+
+function debounce(func, wait) {
+  let timeout;
+  return function(...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), wait);
+  };
+}
+
 const handleWheel = (event) => {
-  timeDelta = event.timeStamp - preTimestamp
-  if (parseInt(timeDelta) < (step.value === 4 ? 3000 : 1500) ) return
-  preTimestamp = event.timeStamp
+  // console.log('滚轮滚动中...');
+  handleWheelEnd(event.deltaY > 0);
+};
 
-  if (event.deltaY > 0) {
-    if (
-      (step.value === 4 &&
-        eventsPublicationsValue.value !== window.innerHeight) ||
-      step.value === 7
-    ) {
-      return;
-    }
-
+const handleWheelEnd = debounce((status) => {
+  // console.log('滚轮滚动结束');
+  if (status) {
+    if ((step.value === 4 && eventsPublicationsValue.value !== window.innerHeight) || step.value === 7) return
     step.value++;
     header.value = false;
   } else {
-    if (
-      step.value !== 4 ||
-      (step.value === 4 && !eventsPublicationsValue.value)
-    ) {
-      if (step.value) {
-        step.value--;
-        header.value = true;
-      }
+    if (step.value === 4 && (step.value === 4 && eventsPublicationsValue.value)) return
+    if (step.value) {
+      step.value--;
+      header.value = true;  
     }
   }
-}
+}, 50);
 
 const draggable = ref(null);
 const draggableStep = ref(null);
