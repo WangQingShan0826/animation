@@ -1465,7 +1465,7 @@ const handleWheel = (event) => {
 const handleWheelEnd = debounce(() => {
   // console.log('滚轮滚动结束');
   changeFlag = true
-}, 70);
+}, 190);
 
 const draggable = ref(null);
 const draggableStep = ref(null);
