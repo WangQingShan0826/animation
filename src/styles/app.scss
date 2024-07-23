@@ -199,13 +199,13 @@
 
     .content {
       width: calc(100vw / 1920 * 90);
-      height: calc(100vw / 1920 * 580);
+      height: calc(100vw / 1920 * 500);
       background-image: url('/src/assets/images/app/swiper/bg_logo_share_01.png');
       background-size: 100% 100%;
       display: flex;
       flex-direction: column;
       padding-left: calc(100vw / 1920 * 5);
-      padding-top: calc(100vw / 1920 * 24);
+      padding-top: calc(100vw / 1920 * 14);
 
       .line {
         width: calc(100vw / 1920 * 26);
@@ -262,7 +262,7 @@
         font-size: calc(100vw / 1920 * 115);
         color: #FFFFFF;
         position: absolute;
-        top: calc(100vw / 1920 * 415);
+        top: calc(100vw / 1920 * 450);
         left: 10vw;
         z-index: 100;
         white-space: nowrap;
@@ -273,7 +273,7 @@
         font-size: calc(100vw / 1920 * 75);
         color: #FFFFFF;
         position: absolute;
-        top: calc(100vw / 1920 * 600);
+        top: calc(100vw / 1920 * 640);
         left: 10vw;
         z-index: 100;
         white-space: nowrap;
@@ -542,7 +542,7 @@
     }
 
     .right-img {
-      height: 56vh;
+      width: calc(100vw / 1920 * 310);
       position: absolute;
       right: -10vw;
       bottom: 0;
@@ -551,7 +551,7 @@
     }
 
     .right-img2 {
-      height: 30vh;
+      width: calc(100vw / 1920 * 168);
       position: absolute;
       right: -10vw;
       bottom: 0;

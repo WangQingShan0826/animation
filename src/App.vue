@@ -241,7 +241,7 @@
         <Transition name="swiper-msg">
           <div class="swiper-msg" v-if="loadFlag && swiperData.current === index">
             <div class="main">Beijing Club</div>
-            <div class="secondary">Think Tank Platform</div>
+            <div class="secondary">For International Dialogue</div>
             <div class="next-btn">
               <img
                 class="btn-3"
@@ -1334,7 +1334,7 @@
 <script setup>
 import { reactive, ref, watch, onMounted, onBeforeUnmount } from "vue";
 
-import swiperImage1 from "./assets/images/app/swiper/img_zhuye_01.png";
+import swiperImage1 from "./assets/images/app/swiper/002016506ced3f667b49a2369815540.png";
 import swiperImage2 from "./assets/images/app/swiper/2.png";
 
 const loadFlag = ref(false)
