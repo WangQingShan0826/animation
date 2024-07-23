@@ -346,33 +346,33 @@
 
     .current-total {
       position: absolute;
-      width: calc(100vw / 1920 * 267);
-      height: calc(100vw / 1920 * 267);
+      width: calc(100vw / 1920 * 180);
+      height: calc(100vw / 1920 * 180);
       background-image: url('/src/assets/images/app/swiper/current-total.png');
       background-size: 100%;
-      top: calc(100vw / 1920 * 230);
-      right: calc(100vw / 1920 * 300);
+      top: calc(100vw / 1920 * 280);
+      right: calc(100vw / 1920 * 240);
       z-index: 1;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: calc(100vw / 1920 * 20) calc(100vw / 1920 * 20) calc(100vw / 1920 * 30) calc(100vw / 1920 * 40);
+      padding: calc(100vw / 1920 * 12);
       transition: .6s;
       z-index: 5;
       color: #FDFEFE;
 
       .swiper-total {
         text-align: right;
-        font-size: calc(100vw / 1920 * 27);
-        line-height: calc(100vw / 1920 * 27);
+        font-size: calc(100vw / 1920 * 26);
+        line-height: calc(100vw / 1920 * 26);
         font-family: none;
-        font-weight: bold;
+        font-weight: 400;
       }
 
       .swiper-current {
-        font-size: calc(100vw / 1920 * 57);
-        line-height: calc(100vw / 1920 * 57);
-        font-weight: bold;
+        font-size: calc(100vw / 1920 * 40);
+        line-height: calc(100vw / 1920 * 40);
+        font-weight: 800;
         font-family: none;
       }
     }
@@ -383,10 +383,10 @@
 
     .next-btn {
       position: absolute;
-      width: calc(100vw / 1920 * 100);
-      height: calc(100vw / 1920 * 100);
-      top: calc(100vw / 1920 * 496);
-      right: calc(100vw / 1920 * 200);
+      width: calc(100vw / 1920 * 80);
+      height: calc(100vw / 1920 * 80);
+      top: calc(100vw / 1920 * 460);
+      right: calc(100vw / 1920 * 160);
       cursor: pointer;
       transition: .6s;
       z-index: 5;
@@ -407,7 +407,7 @@
     }
 
     .next-btn-even {
-      right: calc(100vw / 1920 * 466);
+      right: calc(100vw / 1920 * 380);
     }
 
     .next-btn:hover .btn-2 {
