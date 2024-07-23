@@ -199,7 +199,7 @@
 
     .content {
       width: calc(100vw / 1920 * 90);
-      height: calc(100vw / 1920 * 500);
+      height: calc(100vw / 1920 * 580);
       background-image: url('/src/assets/images/app/swiper/bg_logo_share_01.png');
       background-size: 100% 100%;
       display: flex;
@@ -1003,14 +1003,14 @@
 
   .events-publications {
     width: 100vw;
-    height: 100vh;
+    height: 200vh;
     overflow: hidden;
-    overflow-y: auto;
+    // overflow-y: auto;
     background-color: #000000;
     position: absolute;
     top: 100vh;
     left: 0;
-    transition: .3s;
+    transition: .6s;
     z-index: 1000;
 
     .events {
@@ -1026,7 +1026,7 @@
         font-weight: 500;
         font-size: calc(100vw / 1920 * 50);
         color: #FFFFFF;
-        padding-top: 11vh;
+        padding-top: 10vh;
         padding-left: 10.5vw;
       }
 
@@ -1034,7 +1034,7 @@
         width: 68vh;
         height: 42.5vh;
         background: none;
-        margin-top: 12vh;
+        margin-top: 10vh;
         margin-right: 10.5vw;
         padding: 2px;
         position: relative;
@@ -1075,7 +1075,7 @@
         height: 37vh;
         background-color: #000000;
         position: absolute;
-        top: 66vh;
+        top: 60vh;
         left: 50%;
         margin-left: -59.5vh;
         display: flex;
@@ -1249,6 +1249,7 @@
           gap: 8.4vh;
           position: absolute;
           z-index: 100;
+          transition: 1.3s;
 
           .item {
             width: 33.35vh;
@@ -1388,6 +1389,7 @@
           gap: 0 40vh;
           overflow: visible;
           position: absolute;
+          transition: 1.3s;
 
           .item {
             min-width: 1.6vh;
@@ -1495,7 +1497,7 @@
       height: 100%;
       background-image: url('/src/assets/images/app/partners/bg_img_partners_02.png');
       transition: .6s ease-out;
-      background-size: 100% 100%;
+      background-size: 100% 146%;
     }
 
     .title {
@@ -1719,11 +1721,12 @@
 }
 
 .publications-top-enter-active, .publications-top-leave-active {
-  transition: opacity .6s .1s;
+  transition: opacity .6s .6s, transform .6s .6s;
 }
 
 .publications-top-enter-from, .publications-top-leave-to {
   opacity: 0;
+  transform: translateY(4vh);
 }
 
 .header-msg-nine-enter-active, .header-msg-nine-leave-active {
@@ -1825,11 +1828,20 @@
 }
 
 .follow-title-enter-active, .follow-title-leave-active {
-  transition: opacity .3s 1.5s;
+  transition: opacity .3s 1.6s;
 }
 
 .follow-title-enter-from, .follow-title-leave-to {
   opacity: 0;
+}
+
+.logo-wx-enter-active, .logo-wx-leave-active {
+  transition: opacity .3s 1.5s, transform .3s 1.5s;
+}
+
+.logo-wx-enter-from, .logo-wx-leave-to {
+  opacity: 0;
+  transform: translateY(-2vh);
 }
 
 .logo-ins-enter-active, .logo-ins-leave-active {

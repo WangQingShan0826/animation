@@ -16,7 +16,7 @@
       @mouseover="headerMouseover"
     >
       <Transition name="page-logo">
-        <img v-if="loadFlag" class="logo" src="/src/assets/images/app/footer/logo_bjdh_01.png" />
+        <img v-if="loadFlag" class="logo" src="/src/assets/images/app/header/logo_bjdh_01.png" />
       </Transition>
       <div class="options">
         <div class="item" @mouseover.stop="optionsMore = 1">
@@ -121,7 +121,7 @@
     <div class="page-step">
       <div class="step-box">
         <div
-          v-for="index in 8"
+          v-for="index in 9"
           :class="{ item: true, selected: index == step + 1 }"
           :key="index"
         ></div>
@@ -214,6 +214,21 @@
             <img
               v-else
               src="/src/assets/images/app/swiper/icon_logo_ins_02.png"
+              alt=""
+            />
+          </Transition>
+        </div>
+        <div class="line"></div>
+        <div class="item" @mouseover.stop="share = 7">
+          <Transition name="share">
+            <img
+              v-if="share === 7"
+              src="/src/assets/images/app/swiper/icon_logo_wechat_03.png"
+              alt=""
+            />
+            <img
+              v-else
+              src="/src/assets/images/app/swiper/icon_logo_wechat_02.png"
               alt=""
             />
           </Transition>
@@ -324,7 +339,7 @@
         </div>
         <Transition name="about-us">
           <div class="tag" v-if="step">
-            <img src="/src/assets/images/app/about/img_text_abus_01.png" />
+            <img src="/src/assets/images/app/about/img_text_abbc_01.png" />
           </div>
         </Transition>
       </div>
@@ -770,7 +785,7 @@
     </div>
     <div
       class="events-publications"
-      :style="{ top: step >= 4 ? 0 : '100vh' }"
+      :style="{ top: step >= 4 ? (4 - step) * 100 + 'vh' : '100vh' }"
       ref="eventsPublications"
       @scroll="eventsScroll"
     >
@@ -855,7 +870,7 @@
       </div>
       <div class="publications" @mouseover="publications = null">
         <Transition name="publications-top">
-          <div class="publications-top" v-if="eventsPublicationsValue > 220">
+          <div class="publications-top" v-if="step >= 5">
             <div class="title">Publications</div>
             <div class="next-btn">
               <img
@@ -875,10 +890,9 @@
           <div
             class="publications-view"
             ref="draggable"
-            @mousedown="startDrag"
             :style="{
               width: 33.35 * 5 + 8.4 * 4 + 'vh',
-              transform: `translateX(${eventsPublications && eventsPublications.offsetHeight - eventsPublicationsValue}px)`,
+              transform: `translateX(${step === 5 ? 0 : publicationsScrollDom && publicationsScrollDom.offsetWidth}px)`,
             }"
           >
             <div
@@ -1052,7 +1066,7 @@
             ref="draggableStep"
             :style="{
               width: 33.35 * 5 + 8.4 * 4 + 'vh',
-              transform: `translateX(${eventsPublications && eventsPublications.offsetHeight - eventsPublicationsValue}px)`,
+              transform: `translateX(${step === 5 ? 0 : publicationsScrollDom && publicationsScrollDom.offsetWidth}px)`,
             }"
           >
             <div class="first"><span>2024</span></div>
@@ -1066,7 +1080,7 @@
     </div>
     <div
       class="interview-country"
-      :style="{ top: step >= 5 ? (5 - step) * 100 + 'vh' : '100vh' }"
+      :style="{ top: step >= 6 ? (6 - step) * 100 + 'vh' : '100vh' }"
     >
       <video ref="videoDom" loop muted>
         <source
@@ -1076,45 +1090,45 @@
       </video>
       <div class="mask">
         <Transition name="video-title">
-          <div v-if="step >= 5" class="title">Interview Country</div>
+          <div v-if="step >= 6" class="title">Interview Country</div>
         </Transition>
         <Transition name="video-msg">
-          <div v-if="step >= 5" class="msg" style="top: 20vh; left: 6vw">
+          <div v-if="step >= 6" class="msg" style="top: 20vh; left: 6vw">
             <div>Bahrain</div>
           </div>
         </Transition>
         <Transition name="video-msg">
-          <div v-if="step >= 5" class="msg" style="top: 37vh; left: 13vw">
+          <div v-if="step >= 6" class="msg" style="top: 37vh; left: 13vw">
             <div>Singapore</div>
           </div>
         </Transition>
         <Transition name="video-msg">
-          <div v-if="step >= 5" class="msg" style="top: 52vh; left: 12vw">
+          <div v-if="step >= 6" class="msg" style="top: 52vh; left: 12vw">
             <div>Berlin</div>
           </div>
         </Transition>
         <Transition name="video-msg">
-          <div v-if="step >= 5" class="msg" style="top: 72vh; left: 8vw">
+          <div v-if="step >= 6" class="msg" style="top: 72vh; left: 8vw">
             <div>London</div>
           </div>
         </Transition>
         <Transition name="video-msg">
-          <div v-if="step >= 5" class="msg" style="top: 22vh; right: 10vw">
+          <div v-if="step >= 6" class="msg" style="top: 22vh; right: 10vw">
             <div>Germany</div>
           </div>
         </Transition>
         <Transition name="video-msg">
-          <div v-if="step >= 5" class="msg" style="top: 42vh; right: 15vw">
+          <div v-if="step >= 6" class="msg" style="top: 42vh; right: 15vw">
             <div>Germany</div>
           </div>
         </Transition>
         <Transition name="video-msg">
-          <div v-if="step >= 5" class="msg" style="top: 55vh; right: 7vw">
+          <div v-if="step >= 6" class="msg" style="top: 55vh; right: 7vw">
             <div>Vietnam</div>
           </div>
         </Transition>
         <Transition name="video-msg">
-          <div v-if="step >= 5" class="msg" style="top: 78vh; right: 20vw">
+          <div v-if="step >= 6" class="msg" style="top: 78vh; right: 20vw">
             <div>Dubai</div>
           </div>
         </Transition>
@@ -1122,20 +1136,20 @@
     </div>
     <div
       class="partners"
-      :style="{ top: step >= 6 ? (6 - step) * 60 + 'vh' : '100vh' }"
+      :style="{ top: step >= 7 ? (7 - step) * 60 + 'vh' : '100vh' }"
     >
-      <div
-        :style="{ transform: `translateY(${step === 6 ? 0 : '20vw'})` }"
+      <!-- <div
+        :style="{ transform: `translateY(${step === 7 ? 0 : '10vw'})` }"
         class="bg"
-      ></div>
+      ></div> -->
       <div
-        :style="{ transform: `translateX(${step === 6 ? 0 : '30vw'})` }"
+        :style="{ transform: `translateX(${step === 7 ? 0 : '30vw'})` }"
         class="title"
       >
         Partners
       </div>
       <Transition name="partners-logo">
-        <div class="logo" v-if="step >= 6">
+        <div class="logo" v-if="step >= 7">
           <div>
             <img src="/src/assets/images/app/partners/logo_ngzx_01.png" />
             <img src="/src/assets/images/app/partners/logo_qih_01.png" />
@@ -1153,8 +1167,8 @@
     </div>
     <div
       class="footer"
-      v-if="step >= 6"
-      :style="{ top: step >= 7 ? '40vh' : '100vh' }"
+      v-if="step >= 7"
+      :style="{ top: step >= 8 ? '40vh' : '100vh' }"
     >
       <img
         class="footer-bg"
@@ -1164,7 +1178,7 @@
         <div class="top">
           <Transition name="footer-logo">
             <img
-              v-if="step >= 7"
+              v-if="step >= 8"
               class="logo"
               src="/src/assets/images/app/footer/logo_bjdh_01.png"
             />
@@ -1172,7 +1186,7 @@
           
           <div class="tool">
             <Transition name="footer-edit">
-              <div v-if="step >= 7">
+              <div v-if="step >= 8">
                 <div class="edit">
                   <div>
                     <img src="/src/assets/images/app/footer/btn_xie_02.png" />
@@ -1182,7 +1196,7 @@
               </div>
             </Transition>
             <Transition name="footer-top">
-              <div v-if="step >= 7">
+              <div v-if="step >= 8">
                 <div class="to-top"><img src="/src/assets/images/app/footer/top.png" /></div>
               </div>
             </Transition>
@@ -1192,19 +1206,19 @@
           <div class="left">
             <div class="col">
               <Transition name="row-one">
-                <div class="row" v-if="step >= 7">
+                <div class="row" v-if="step >= 8">
                   <div>Newsletter</div>
                   <div style="color: #ce1b1b">Newsletter</div>
                 </div>
               </Transition>
               <Transition name="row-two">
-                <div class="row" v-if="step >= 7">
+                <div class="row" v-if="step >= 8">
                   <div>Contact us</div>
                   <div style="color: #ce1b1b">Contact us</div>
                 </div>
               </Transition>
               <Transition name="row-three">
-                <div class="row" v-if="step >= 7">
+                <div class="row" v-if="step >= 8">
                   <div>Press</div>
                   <div style="color: #ce1b1b">Press</div>
                 </div>
@@ -1212,25 +1226,25 @@
             </div>
             <div class="col">
               <Transition name="row-one">
-                <div class="row" v-if="step >= 7">
+                <div class="row" v-if="step >= 8">
                   <div>Multimedia</div>
                   <div style="color: #ce1b1b">Multimedia</div>
                 </div>
               </Transition>
               <Transition name="row-two">
-                <div class="row" v-if="step >= 7">
+                <div class="row" v-if="step >= 8">
                   <div>Events</div>
                   <div style="color: #ce1b1b">Events</div>
                 </div>
               </Transition>
               <Transition name="row-three">
-                <div class="row" v-if="step >= 7">
+                <div class="row" v-if="step >= 8">
                   <div>Publications</div>
                   <div style="color: #ce1b1b">Publications</div>
                 </div>
               </Transition>
               <Transition name="row-four">
-                <div class="row" v-if="step >= 7">
+                <div class="row" v-if="step >= 8">
                   <div>Partners</div>
                   <div style="color: #ce1b1b">Partners</div>
                 </div>
@@ -1238,25 +1252,25 @@
             </div>
             <div class="col">
               <Transition name="row-one">
-                <div class="row" v-if="step >= 7">
+                <div class="row" v-if="step >= 8">
                   <div>Acessibility</div>
                   <div style="color: #ce1b1b">Acessibility</div>
                 </div>
               </Transition>
               <Transition name="row-two">
-                <div class="row" v-if="step >= 7">
+                <div class="row" v-if="step >= 8">
                   <div>Cookie Pilicy</div>
                   <div style="color: #ce1b1b">Cookie Pilicy</div>
                 </div>
               </Transition>
               <Transition name="row-three">
-                <div class="row" v-if="step >= 7">
+                <div class="row" v-if="step >= 8">
                   <div>privacy Policy</div>
                   <div style="color: #ce1b1b">privacy Policy</div>
                 </div>
               </Transition>
               <Transition name="row-four">
-                <div class="row" v-if="step >= 7">
+                <div class="row" v-if="step >= 8">
                   <div>Terms and Condhions</div>
                   <div style="color: #ce1b1b">Terms and Condhions</div>
                 </div>
@@ -1265,37 +1279,42 @@
           </div>
           <div class="follow">
             <Transition name="follow-title">
-              <div class="title" v-if="step >= 7">Follow us</div>
+              <div class="title" v-if="step >= 8">Follow us</div>
             </Transition>
             <div class="follow-brand">
               <Transition name="logo-tt">
-                <div v-if="step >= 7">
+                <div v-if="step >= 8">
                   <img src="/src/assets/images/app/footer/icon_logo_tt_01.png" />
                 </div>
               </Transition>
               <Transition name="logo-fb">
-                <div v-if="step >= 7">
+                <div v-if="step >= 8">
                   <img src="/src/assets/images/app/footer/icon_logo_fb_01.png" />
                 </div>
               </Transition>
               <Transition name="logo-yl">
-                <div v-if="step >= 7">
+                <div v-if="step >= 8">
                   <img src="/src/assets/images/app/footer/icon_logo_yl_01.png" />
                 </div>
               </Transition>
               <Transition name="logo-yt">
-                <div v-if="step >= 7">
+                <div v-if="step >= 8">
                   <img src="/src/assets/images/app/footer/icon_logo_yt_01.png" />
                 </div>
               </Transition>
               <Transition name="logo-email">
-                <div v-if="step >= 7">
+                <div v-if="step >= 8">
                   <img src="/src/assets/images/app/footer/icon_logo_email_01.png" />
                 </div>
               </Transition>
               <Transition name="logo-ins">
-                <div v-if="step >= 7">
+                <div v-if="step >= 8">
                   <img src="/src/assets/images/app/footer/icon_logo_ins_01.png" />
+                </div>
+              </Transition>
+              <Transition name="logo-wx">
+                <div v-if="step >= 8">
+                  <img src="/src/assets/images/app/footer/wx.png" />
                 </div>
               </Transition>
             </div>
@@ -1303,7 +1322,7 @@
         </div>
       </div>
       <Transition name="footer-tips">
-        <div class="tips" v-if="step >= 7">
+        <div class="tips" v-if="step >= 8">
           Copyrlght 2024 Beijing Club Inc,.All Rlghts Rserved.
         </div>
       </Transition>
@@ -1315,7 +1334,7 @@
 <script setup>
 import { reactive, ref, watch, onMounted, onBeforeUnmount } from "vue";
 
-import swiperImage1 from "./assets/images/app/swiper/1.png";
+import swiperImage1 from "./assets/images/app/swiper/img_zhuye_01.png";
 import swiperImage2 from "./assets/images/app/swiper/2.png";
 
 const loadFlag = ref(false)
@@ -1381,45 +1400,7 @@ const eventsScroll = (event) => {
   eventsPublicationsValue.value = eventsPublications.value.scrollTop;
 };
 
-let preTimestamp = 0
-let timeDelta = 0
 let changeFlag = true
-// const handleWheel = (event) => {
-//   timeDelta = event.timeStamp - preTimestamp
-//   if (!changeFlag) return
-//   preTimestamp = event.timeStamp
-
-//   if (event.deltaY > 0) {
-//     if (
-//       (step.value === 4 &&
-//         eventsPublicationsValue.value !== window.innerHeight) ||
-//       step.value === 7
-//     ) {
-//       return;
-//     }
-
-//     step.value++;
-//     header.value = false;
-//     changeFlag = false
-//     setTimeout(() => {
-//       changeFlag = true
-//     }, 1000)
-//   } else {
-//     if (
-//       step.value !== 4 ||
-//       (step.value === 4 && !eventsPublicationsValue.value)
-//     ) {
-//       if (step.value) {
-//         step.value--;
-//         header.value = true;
-//         changeFlag = false
-//         setTimeout(() => {
-//           changeFlag = true
-//         }, 1000)
-//       }
-//     }
-//   }
-// }
 
 function debounce(func, wait) {
   let timeout;
@@ -1433,28 +1414,14 @@ const handleWheel = (event) => {
   // console.log('滚轮滚动中...');
   if (changeFlag) {
     if (event.deltaY > 0) {
-      if (step.value !== 7) {
-        if (step.value === 4) {
-          if (eventsPublicationsValue.value === window.innerHeight) {
-            step.value++;
-            header.value = false;
-          }
-        } else {
-          step.value++;
-          header.value = false;
-        }
+      if (step.value !== 8) {
+        step.value++;
+        header.value = false;
       }   
     } else {
       if (step.value > 0) {
-        if (step.value === 4) {
-          if (!eventsPublicationsValue.value) {
-            step.value--;
-            header.value = true;
-          }
-        } else {
-          step.value--;
-          header.value = true;
-        }
+        step.value--;
+        header.value = true;
       }
     }
     changeFlag = false
@@ -1465,7 +1432,7 @@ const handleWheel = (event) => {
 const handleWheelEnd = debounce(() => {
   // console.log('滚轮滚动结束');
   changeFlag = true
-}, 190);
+}, 80);
 
 const draggable = ref(null);
 const draggableStep = ref(null);
