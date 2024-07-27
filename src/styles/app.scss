@@ -4,6 +4,7 @@
   box-sizing: border-box;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  user-select: none;
 }
 
 ::-webkit-scrollbar {
@@ -1373,11 +1374,11 @@
           }
 
           .four {
-            background-image: url('/src/assets/images/app/events/img_pul_01.png');
+            background-image: url('/src/assets/images/app/new/img_pul_04.png');
           }
 
           .five {
-            background-image: url('/src/assets/images/app/events/img_pul_02.png');
+            background-image: url('/src/assets/images/app/new/img_pul_05.png');
           }
         }
 

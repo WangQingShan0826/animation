@@ -370,7 +370,7 @@
               <div class="left" v-if="step >= 2">
                 <img
                   class="img-item"
-                  src="/src/assets/images/app/multimedia/img_list_mul_01.png"
+                  src="/src/assets/images/app/new/img_list_mul_01.png"
                 />
                 <div
                   class="mask"
@@ -484,7 +484,7 @@
               <div class="item" v-if="step >= 2">
                 <img
                   class="img-item"
-                  src="/src/assets/images/app/multimedia/img_list_mul_03.png"
+                  src="/src/assets/images/app/new/img_list_mul_03.png"
                 />
                 <div
                   class="mask"
@@ -894,6 +894,7 @@
               width: 33.35 * 5 + 8.4 * 4 + 'vh',
               transform: `translateX(${step === 5 ? 0 : publicationsScrollDom && publicationsScrollDom.offsetWidth}px)`,
             }"
+            @mousedown="startDrag"
           >
             <div
               class="item"
